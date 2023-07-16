@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -n '' file.txt | grep -E '[13579]:|$' | cut -d: -f2
+grep -n '' | grep -E '^[[:digit:]]*[02468]:'
