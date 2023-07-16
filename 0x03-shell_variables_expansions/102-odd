@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -n '.*' | grep -E '^[0-9]+:[02468]' | cut -d':' -f2
+grep -n '' file.txt | grep -E '[13579]:|$' | cut -d: -f2
