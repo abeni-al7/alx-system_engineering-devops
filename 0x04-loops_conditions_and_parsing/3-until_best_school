@@ -2,7 +2,7 @@
 # This script displays "Best School" 10 times
 
 counter="10"
-until [ $counter -gt "0" ]; do
+until [ $counter -eq "0" ]; do
 	echo "Best School"
 	((counter--))
 done
