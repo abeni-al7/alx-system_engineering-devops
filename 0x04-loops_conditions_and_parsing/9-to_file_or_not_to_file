@@ -2,17 +2,19 @@
 # This script checks the file "School"
 
 if [ -e "School" ]; then
-	echo "school file exists"
-	if [ ! -s "School" ]; then
-		echo "school file is empty"
-	else
-		echo "school file is empty"
-	fi
-	if [ -f "School" ]; then
-		echo "school is a regular file"
-	else
-		echo
-	fi
+    echo "school file exists"
+    
+    if [ ! -s "School" ]; then
+        echo "school file is empty"
+    else
+        echo "school file is not empty"
+    fi
+    
+    if [ -f "School" ]; then
+        echo "school is a regular file"
+    else
+        echo "school is not a regular file"
+    fi
 else
-	echo "school file does not exist"
+    echo "school file does not exist"
 fi
