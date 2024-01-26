@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script beheads an invincible script
+
+kill -9 "$(pgrep -f 7-highlander)"
