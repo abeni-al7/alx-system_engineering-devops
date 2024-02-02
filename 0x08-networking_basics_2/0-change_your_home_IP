@@ -2,6 +2,6 @@
 # This script modifies host file
 
 cp /etc/hosts ~/hosts.new
-sed -i 's/localhost/127.0.0.2/g' ~/hosts.new
-sed -i 's/facebook.com/8.8.8.8/g' ~/hosts.new
+sed -i -e 's/localhost/127.0.0.2/g' ~/hosts.new
+sed -i -e 's/facebook.com/8.8.8.8/g' ~/hosts.new
 cp -f ~/hosts.new /etc/hosts
