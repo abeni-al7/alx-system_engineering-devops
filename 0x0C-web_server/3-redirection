@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script handles redirections for a web server
+apt-get update -y -qq
+apt-get install nginx -y
+
+service nginx start
+ufw allow 'Nginx HTTP'
+
+chown -R "$USER":"$USER" /var/www/html
+chmod -R 755 /var/www
+
+echo -e "Hello World!" > /var/www/html/index.html
+
+sed -i '24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+service nginx restart
