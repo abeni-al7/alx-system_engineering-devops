@@ -2,9 +2,13 @@
 # This script installs nginx web server on the server
 
 # Install nginx
-apt-get update
+apt-get update -y -qq
 apt-get install nginx -y
+service nginx start
+ufu allow 'Nginx HTTP'
+chown -R "$USER":"$USER" /var/www/html
+chmod -R 755 /var/www
 # Configure nginx to listen on port 80
 sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 # Change the content of the default page
-echo "Hello World!" > /var/www/html/index.html
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.html
