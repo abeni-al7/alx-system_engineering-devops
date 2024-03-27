@@ -4,12 +4,7 @@
 # Install nginx
 apt-get update
 apt-get install nginx -y
-
 # Configure nginx to listen on port 80
 sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
-
 # Change the content of the default page
 echo "Hello World!" > /var/www/html/index.html
-
-# Restart nginx
-systemctl restart nginx
