@@ -9,7 +9,7 @@ apt-get install nginx -y
 sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 
 # Change the content of the default page
-bash -c 'echo "Hello World!" > /var/www/html/index.html'
+echo "Hello World!" > /var/www/html/index.html
 
 # Restart nginx
 systemctl restart nginx
