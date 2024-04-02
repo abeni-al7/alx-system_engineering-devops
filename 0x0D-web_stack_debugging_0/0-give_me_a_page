@@ -3,5 +3,9 @@
 # return a page containing 'Hello Holberton' when querying
 # the container on port 8080
 
-echo "ServerName localhost" >> /etc/apache2.conf
+sudo apt-get update
+sudo apt-get install apache2 -y
+
 sudo service apache2 start
+
+echo "Hello Holberton" > /var/www/html/index.html
