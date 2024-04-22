@@ -20,6 +20,7 @@ if __name__ == "__main__":
                           "completed": todo.get("completed"),
                           "username": user.get("username")})
         data[user.get("id")] = tasks
+        print(data)
 
     with open("todo_all_employees.json", "w") as jsonfile:
         json.dump(data, jsonfile)
