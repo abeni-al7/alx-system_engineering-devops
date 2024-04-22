@@ -9,16 +9,16 @@ import requests
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/"
     users = requests.get(url + "users").json()
-
+    print(users)
     data = {}
     for user in users:
         tasks = []
         todos = requests.get(url + "todos?userId={}".format(
             user.get("id"))).json()
         for todo in todos:
-            tasks.append({"task": todo.get("title"),
-                          "completed": todo.get("completed"),
-                          "username": user.get("username")})
+            tasks.append({"username": user.get("username"),
+                          "task": todo.get("title"),
+                          "completed": todo.get("completed")})
         data[user.get("id")] = tasks
         print(data)
 
