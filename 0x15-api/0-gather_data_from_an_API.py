@@ -11,7 +11,8 @@ if __name__ == "__main__":
     user = response.json()
     name = user.get("name")
 
-    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(user_id)
+    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
+        user_id)
     response = requests.get(url)
     todos = response.json()
     total_tasks = len(todos)
