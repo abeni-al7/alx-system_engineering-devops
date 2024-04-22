@@ -2,8 +2,8 @@
 """This script uses a REST API to get information about a given employee ID
 and returns information about his/her TODO list progress.
 It then exports the data in the JSON format."""
-import requests
 import json
+import requests
 from sys import argv
 
 if __name__ == "__main__":
@@ -13,7 +13,8 @@ if __name__ == "__main__":
     user = response.json()
     name = user.get("username")
 
-    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(user_id)
+    url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
+        user_id)
     response = requests.get(url)
     todos = response.json()
 
