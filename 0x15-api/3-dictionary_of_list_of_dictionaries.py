@@ -11,21 +11,21 @@ if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com/users"
     response = requests.get(url)
     users = response.json()
+    url = "https://jsonplaceholder.typicode.com/todos"
+    response = requests.get(url)
+    todos = response.json()
     data = {}
     for user in users:
         user_id = user.get("id")
         name = user.get("username")
-        url = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
-            user_id)
-        response = requests.get(url)
-        todos = response.json()
         tasks = []
         for task in todos:
-            task_dict = {}
-            task_dict["task"] = task.get("title")
-            task_dict["completed"] = task.get("completed")
-            task_dict["username"] = name
-            tasks.append(task_dict)
+            if task.get("userId") == user_id:
+                task_dict = {}
+                task_dict["task"] = task.get("title")
+                task_dict["completed"] = task.get("completed")
+                task_dict["username"] = name
+                tasks.append(task_dict)
         data[user_id] = tasks
 
     with open("todo_all_employees.json", "w") as jsonfile:
