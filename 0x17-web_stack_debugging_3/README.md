@@ -1,0 +1,1 @@
+Debug a LAMP stack for wordpress website
